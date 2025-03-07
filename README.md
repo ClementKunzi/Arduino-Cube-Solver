@@ -10,9 +10,11 @@ L'utilisateur doit valider manuellement chaque couleur scannée en appuyant sur 
 
 Voici trois projets similaires ou inspirants :
 
-1. **Rubik's Cube Solver with OpenCV & Python** - Un projet utilisant la vision par ordinateur pour identifier les couleurs et résoudre le cube.
-2. **Arduino Rubik's Cube Solver** - Un dispositif mécanique entièrement automatisé pour résoudre le cube après analyse.
-3. **MindCub3r** - Un robot basé sur LEGO Mindstorms capable de résoudre le Rubik's Cube de manière autonome.
+Voici trois projets similaires ou inspirants :
+1. **[Rubik's Cube Solver Robot](https://projecthub.arduino.cc/hbolanos2001/rubiks-cube-solver-robot-6233e2)** - Un robot basé sur Arduino utilisant un algorithme avancé pour résoudre un Rubik's Cube en quelques minutes.
+2. **[Rubik’s Cube Solver](https://www.instructables.com/Rubiks-Cube-Solver/)** - Un projet permettant la reconnaissance des couleurs et la résolution automatique à l'aide d'un microcontrôleur.
+3. **[ARS - Arduino Rubik Solver](https://www.instructables.com/ARS-Arduino-Rubik-Solver/)** - Un autre projet automatisé utilisant Arduino pour résoudre le cube avec un mécanisme de bras motorisé.
+
 
 ## Photographies et vidéo du prototype final
 
