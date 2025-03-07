@@ -17,10 +17,10 @@ Le circuit utilise un **capteur de couleur TCS3200**, un **écran TFT ST7735**, 
 | Réf | Composant        | Quantité | Description                                  | Fournisseur / Lien                                            |
 | --- | ---------------- | -------- | -------------------------------------------- | ------------------------------------------------------------- |
 | 1   | Arduino Uno R3   | 1        | Microcontrôleur ATmega328P                   | [Arduino](https://store.arduino.cc/products/arduino-uno-rev3) |
-| 2   | Breadboard       | 1        | Plaque de prototypage                        | (#)                                                           |
-| 3   | TCS3200          | 1        | Capteur de couleur                           | (#)                                                           |
-| 4   | Bouton-poussoir  | 2        | Validation des couleurs                      | (#)                                                           |
-| 5   | Écran TFT ST7735 | 1        | Affichage des instructions et de la solution | (#)                                                           |
+| 2   | Breadboard       | 1        | Plaque de prototypage                        | [Lien](#)                                                     |
+| 3   | TCS3200          | 1        | Capteur de couleur                           | [Lien](#)                                                     |
+| 4   | Bouton-poussoir  | 2        | Validation des couleurs                      | [Lien](#)                                                     |
+| 5   | Écran TFT ST7735 | 1        | Affichage des instructions et de la solution | [Lien](#)                                                     |
 
 ## Programme
 
@@ -37,9 +37,66 @@ Le programme gère la **capture des couleurs**, l'**envoi des données** à l'AP
 - `Adafruit_ST7735.h`
 - `SPI.h`
 
+### Communication avec un script Python
+
+Un script Python est utilisé pour faciliter l'interaction entre l'Arduino et l'API de résolution. Il reçoit les couleurs scannées via la communication série, formate ces données selon les exigences de l'API et envoie la requête HTTP pour obtenir la séquence de mouvements de résolution.
+
+#### Fonctionnement du script Python
+
+1. Récupération des couleurs transmises par l'Arduino via le port série.
+2. Conversion des couleurs en notation standard du Rubik's Cube (U, D, L, R, F, B).
+3. Envoi d'une requête HTTP à l'API Pocket Cube Solver avec les données formatées.
+4. Réception de la réponse de l'API contenant la séquence de résolution.
+5. Transmission de la solution à l'Arduino pour affichage sur l'écran TFT.
+
+#### Bibliothèques Python utilisées
+
+- `serial` : Pour la communication série avec l'Arduino.
+- `requests` : Pour envoyer la requête HTTP à l'API.
+- `json` : Pour traiter la réponse JSON de l'API.
+
+### Code principal
+
+(_Insérer ici le code Arduino avec commentaires explicatifs_)
+
+### Exemple de script Python
+
+```python
+import serial
+import requests
+import json
+
+SERIAL_PORT = '/dev/ttyUSB0'  # Adapter selon le système
+BAUD_RATE = 115200
+API_URL = 'https://pocket-cube-solver.vercel.app/'
+
+# Connexion au port série
+ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=2)
+
+def send_to_api(cube_state):
+    response = requests.get(API_URL + cube_state)
+    if response.status_code == 200:
+        return response.text.strip()
+    else:
+        return "Erreur API"
+
+while True:
+    if ser.in_waiting > 0:
+        cube_state = ser.readline().decode('utf-8').strip()
+        print("Cube détecté:", cube_state)
+        solution = send_to_api(cube_state)
+        ser.write((solution + '\n').encode())
+```
+
 ## Roadmap
 
 - Affichage des étapes de résolution.
 - Écran d'attente de la réponse de l'API.
 - Écran de fin.
 - Rafraîchissement de l'écran trop fréquent.
+- Optimisation du script Python pour une meilleure gestion des erreurs et des délais de réponse.
+- Ajout d'un système de logs pour analyser les performances et les erreurs du dispositif.
+
+## Présentation finale
+
+Lors de la démonstration, le dispositif sera utilisé pour scanner un cube et afficher la solution en temps réel sur l'écran TFT.
