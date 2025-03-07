@@ -1,5 +1,8 @@
 # Résolveur de Rubik's Cube avec Arduino
 
+![V2](/docs/assets/Arduino_v2.jpg)
+![V1](/docs/assets/Arduino_v1.jpg)
+
 ## Description et motivations
 
 Ce projet vise à concevoir un dispositif électronique permettant de scanner les faces d'un Rubik's Cube et d'afficher la solution en temps réel. L'objectif principal est de rendre la résolution du Rubik's Cube accessible à tous, en simplifiant l'analyse des couleurs et en fournissant une solution claire et compréhensible. Contrairement à d'autres projets automatisés, ici, le cube est déplacé manuellement par l'utilisateur devant un capteur de couleur, supprimant ainsi la complexité mécanique et réduisant les coûts.
@@ -11,10 +14,10 @@ L'utilisateur doit valider manuellement chaque couleur scannée en appuyant sur 
 Voici trois projets similaires ou inspirants :
 
 Voici trois projets similaires ou inspirants :
+
 1. **[Rubik's Cube Solver Robot](https://projecthub.arduino.cc/hbolanos2001/rubiks-cube-solver-robot-6233e2)** - Un robot basé sur Arduino utilisant un algorithme avancé pour résoudre un Rubik's Cube en quelques minutes.
 2. **[Rubik’s Cube Solver](https://www.instructables.com/Rubiks-Cube-Solver/)** - Un projet permettant la reconnaissance des couleurs et la résolution automatique à l'aide d'un microcontrôleur.
 3. **[ARS - Arduino Rubik Solver](https://www.instructables.com/ARS-Arduino-Rubik-Solver/)** - Un autre projet automatisé utilisant Arduino pour résoudre le cube avec un mécanisme de bras motorisé.
-
 
 ## Photographies et vidéo du prototype final
 

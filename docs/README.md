@@ -96,7 +96,3 @@ while True:
 - Rafraîchissement de l'écran trop fréquent.
 - Optimisation du script Python pour une meilleure gestion des erreurs et des délais de réponse.
 - Ajout d'un système de logs pour analyser les performances et les erreurs du dispositif.
-
-## Présentation finale
-
-Lors de la démonstration, le dispositif sera utilisé pour scanner un cube et afficher la solution en temps réel sur l'écran TFT.
